@@ -1,1 +1,1 @@
-{'test': ['new.txt', {'project': ['new.py']}]}
+{'test': ['new.txt', {'project': ['new.py', {'test_dir': ['new_file.py']}]}]}

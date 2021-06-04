@@ -70,7 +70,7 @@ while True:
     get_com = list(input(f'Введите команду (? - список команд) {dir} ').split(' '))
     if get_com[0] == '?':
         print('newproject имя_проекта - создать и открыть новый проект')
-        print('openproject имя_файла_проекта - открыть проект')
+        print('openproject имя_файла_проекта.yaml - открыть проект')
         print('showproject - показать всю структуру проекта ')
         print('test - распаковать проект в системе')
         print('exit - выйти из проекта')

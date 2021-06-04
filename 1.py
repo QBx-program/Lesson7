@@ -66,7 +66,7 @@ file = ''
 
 project = {}
 
-while get_com[0] != 'test':
+while True:
     get_com = list(input(f'Введите команду (? - список команд) {dir} ').split(' '))
     if get_com[0] == '?':
         print('newproject имя_проекта - создать и открыть новый проект')

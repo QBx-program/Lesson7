@@ -43,6 +43,8 @@ def print_nested(d, pr=''):
     return path
 
 def run_project(d):
+    with open(file, 'w', encoding='UTF-8') as f:
+        f.write(str(project))
     for i in d:
         path = []
         for v in i.split('/'):

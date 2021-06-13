@@ -36,7 +36,7 @@ def open_file(path_file):
             in_file = f.read()
         return [in_file, byte_check]
     except FileNotFoundError:
-        print(f'Файл [{path_file}] не найден')
+        print(f'Файл [{path_file}] не найден\n')
         return ''
 
 def print_nested(d, pr=''):
@@ -70,7 +70,7 @@ def run_project(d, proj, fil):
             if len(path) - 1 == ind:
                 with open(path_f+path[ind], 'w', encoding='UTF-8') as f:
                     pass
-    print(f'Проект [{project_name}] распакован в {os.getcwd()}')
+    print(f'Проект [{project_name}] распакован в {os.getcwd()}\n')
 
 rep = False
 get_com = ['']
@@ -82,12 +82,12 @@ file = ''
 project = {}
 
 while True:
-    get_com = list(input(f'Введите команду (? - список команд) {dir} ').split(' '))
+    get_com = list(input(f'\nВведите команду (? - список команд) {dir} ').split(' '))
     if get_com[0] == '?':
         print('Это программа для создания виртуального дерева файловой системы и ее распаковки. Работа с файлами *.irp\n')
         print('newproject имя_проекта - создать и открыть новый проект (расширение указывать не надо)')
         print('openproject имя_файла_проекта - открыть проект (расширение указывать не надо)')
-        print('saveproject - сохраняет проект')
+        print('save - сохраняет проект')
         print('saveproject имя_файла - сохрать проект в файл (расширение указывать не надо)')
         print('showproject - показать всю структуру проекта\n')
         print('run - распаковать проект в системе')
@@ -104,7 +104,7 @@ while True:
         print('rmfile имя_файла - удаляет файл')
     elif get_com[0] == 'newproject':
         if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-            print('Вы не указали имя проекта')
+            print('Вы не указали имя проекта\n')
         else:
             import ast
             file = get_com[1]+'.irp'
@@ -400,5 +400,11 @@ while True:
                     print(f'Файл [{get_com[1]}] не найден\n')
     elif get_com[0] == 'save':
         save_project(file, project, files)
+    elif get_com[0] == 'saveproject':
+        if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
+            print('Вы не указали имя файла\n')
+        else:
+            file = f'{get_com[1]}.irp'
+            save_project(file, project, files)
     else:
         print(f'Команды [{get_com[0]}] нет\n')

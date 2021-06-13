@@ -118,7 +118,7 @@ while True:
                 indir = v
     elif get_com[0] == 'openproject':
         if len(get_com) == 1 or (len(get_com) > 1 and f'{get_com[1]}.irp' == ''):
-            print('Вы не указали файл проекта')
+            print('Вы не указали файл проекта\n')
         else:
             try:
                 import ast
@@ -131,9 +131,9 @@ while True:
                     indir = v
                     project_name = indir
             except FileNotFoundError:
-                print(f'Файл проекта [{get_com[1]}] не найден')
+                print(f'Файл проекта [{get_com[1]}] не найден\n')
             except ValueError:
-                print(f'Файл проекта [{get_com[1]}] не содержит проекта или проект поврежден')
+                print(f'Файл проекта [{get_com[1]}] не содержит проекта или проект поврежден\n')
     elif get_com[0] == 'exit':
         if file == '':
             exit(1)
@@ -152,11 +152,11 @@ while True:
                     break
     elif get_com[0] == 'run':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             for k, v in project.items():
                 if os.path.isdir(k):
-                    print(f'Директория [{k}] существует')
+                    print(f'Директория [{k}] существует\n')
                 else:
                     run_project(print_nested(project), project, files)
                     if len(files) > 0:
@@ -170,10 +170,10 @@ while True:
                     exit(0)
     elif get_com[0] == 'show':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(indir) == 0:
-                print('Нет директорий и файлов')
+                print('Нет директорий и файлов\n')
             for i in indir:
                 if isinstance(i, dict):
                     for k, v in i.items():
@@ -182,17 +182,17 @@ while True:
                     print(i, '[file]')
     elif get_com[0] == 'showproject':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             path = print_nested(project)
             for i in path:
                 print(i)
     elif get_com[0] == 'open':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали директорию')
+                print('Вы не указали директорию\n')
             else:
                 find_dir = False
                 for i in indir:
@@ -202,15 +202,15 @@ while True:
                             dir = f'{dir}/{get_com[1]}'
                             indir = i[get_com[1]]
                 if find_dir == False:
-                    print(f'Директории [{get_com[1]}] не существует')
+                    print(f'Директории [{get_com[1]}] не существует\n')
     elif get_com[0] == 'ex':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             outdir = dir.split('/')
             outdir.pop()
             if len(outdir) == 0:
-                print('Вы находитесь в корневой директории проекта')
+                print('Вы находитесь в корневой директории проекта\n')
             elif len(outdir) > 0:
                 for k, v in project.items():
                     dir = k
@@ -224,26 +224,26 @@ while True:
                                 indir = i_v[val]
     elif get_com[0] == 'addir':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали директорию')
+                print('Вы не указали директорию\n')
             else:
                 add_dir = True
                 for i in indir:
                     if isinstance(i, dict):
                         for k, v in i.items():
                             if k == get_com[1]:
-                                print(f'Директория [{get_com[1]}] уже существует')
+                                print(f'Директория [{get_com[1]}] уже существует\n')
                                 add_dir = False
                 if add_dir == True:
                     indir.append({get_com[1]: []})
     elif get_com[0] == 'rmdir':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали директорию')
+                print('Вы не указали директорию\n')
             else:
                 quest = ''
                 isdir = False
@@ -268,15 +268,15 @@ while True:
                                         isdir = True
                                         break
                 if isdir == False:
-                    print(f'Директория [{get_com[1]}] не найдена')
+                    print(f'Директория [{get_com[1]}] не найдена\n')
     elif get_com[0] == 'redir':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали директорию')
+                print('Вы не указали директорию\n')
             elif len(get_com) == 2 or (len(get_com) > 2 and get_com[2] == ''):
-                print('Вы не указали новое наименование директории')
+                print('Вы не указали новое наименование директории\n')
             else:
                 quest = ''
                 isdir = False
@@ -286,7 +286,7 @@ while True:
                     if isinstance(i, dict):
                         for k, v in i.items():
                             if k == get_com[2]:
-                                print(f'Директория [{get_com[2]}] уже существует')
+                                print(f'Директория [{get_com[2]}] уже существует\n')
                                 not_re = True
                             elif k == get_com[1]:
                                 if not_re == False:
@@ -308,21 +308,21 @@ while True:
                     for index, value in enumerate(files):
                         if value[1].find(f'{dir}/{get_com[1]}') > -1:
                             files[index][1] = files[index][1].replace(f'{dir}/{get_com[1]}', f'{dir}/{get_com[2]}')
-                    print(f'Директория [{get_com[1]}] переименована в [{get_com[2]}]')
+                    print(f'Директория [{get_com[1]}] переименована в [{get_com[2]}]\n')
                 if isdir == False and not_re == False:
-                    print(f'Директория [{get_com[1]}] не найдена')
+                    print(f'Директория [{get_com[1]}] не найдена\n')
     elif get_com[0] == 'addfile':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали имя файла')
+                print('Вы не указали имя файла\n')
             elif len(get_com) == 2 or (len(get_com) > 2 and get_com[2] == ''):
                 add_file = True
                 for i in indir:
                     if isinstance(i, str):
                         if i == get_com[1]:
-                            print(f'Файл [{get_com[1]}] существует')
+                            print(f'Файл [{get_com[1]}] существует\n')
                             add_file = False
                 if add_file == True:
                     indir.append(get_com[1])
@@ -333,7 +333,7 @@ while True:
                     for i in indir:
                         if isinstance(i, str):
                             if i == get_com[1]:
-                                print(f'Файл [{get_com[1]}] существует')
+                                print(f'Файл [{get_com[1]}] существует\n')
                                 in_file = ''
                                 add_file = False
                     if add_file == True:
@@ -341,19 +341,19 @@ while True:
                         indir.append(get_com[1])
     elif get_com[0] == 'refile':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали имя файла')
+                print('Вы не указали имя файла\n')
             elif len(get_com) == 2 or (len(get_com) > 2 and get_com[2] == ''):
-                print('Вы не указали новое имя файла')
+                print('Вы не указали новое имя файла\n')
             else:
                 isfile = False
                 not_re = False
                 quest = ''
                 for ind, i in enumerate(indir):
                     if i == get_com[2]:
-                        print(f'Файл [{get_com[2]}] существует')
+                        print(f'Файл [{get_com[2]}] существует\n')
                         not_re = True
                     elif i == get_com[1]:
                         if not_re == False:
@@ -371,15 +371,15 @@ while True:
                     for index, value in enumerate(files):
                         if value[1].find(f'{dir}/{get_com[1]}') > -1:
                             files[index][1] = files[index][1].replace(f'{dir}/{get_com[1]}', f'{dir}/{get_com[2]}')
-                    print(f'Файл [{get_com[1]}] переименован в [{get_com[2]}]')
+                    print(f'Файл [{get_com[1]}] переименован в [{get_com[2]}]\n')
                 if isfile == False and not_re == False:
-                    print(f'Файл [{get_com[1]}] не найден')
+                    print(f'Файл [{get_com[1]}] не найден\n')
     elif get_com[0] == 'rmfile':
         if file == '':
-            print('Откройте или создайте проект (воспользуйтесь помощью)')
+            print('Откройте или создайте проект (воспользуйтесь помощью)\n')
         else:
             if len(get_com) == 1 or (len(get_com) > 1 and get_com[1] == ''):
-                print('Вы не указали имя файла')
+                print('Вы не указали имя файла\n')
             else:
                 isfile = False
                 quest = ''
@@ -397,8 +397,8 @@ while True:
                                     isfile = True
                                     break
                 if isfile == False:
-                    print(f'Файл [{get_com[1]}] не найден')
+                    print(f'Файл [{get_com[1]}] не найден\n')
     elif get_com[0] == 'save':
         save_project(file, project, files)
     else:
-        print(f'Команды [{get_com[0]}] нет')
+        print(f'Команды [{get_com[0]}] нет\n')

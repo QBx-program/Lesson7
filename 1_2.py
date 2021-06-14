@@ -4,7 +4,7 @@ path = []
 
 def save_project(file, project, files):
     while True:
-        quest = input('Сохранить проект? (y - да, n - нет, e - отменить выход) ')
+        quest = input('Сохранить проект? (y - да, n - нет) ')
         if quest == 'y':
             with open(file, 'w', encoding='UTF-8') as f:
                 f.writelines(f'{str(project)}\n')
@@ -53,10 +53,7 @@ def print_nested(d, pr=''):
     return path
 
 def run_project(d, proj, fil):
-    pass
-    with open(file, 'w', encoding='UTF-8') as f:
-        f.writelines(f'{str(proj)}\n')
-        f.writelines(f'{str(fil)}\n')
+    save_project(prof, fil)
     for i in d:
         path = []
         for v in i.split('/'):
@@ -132,7 +129,7 @@ while True:
                     project_name = indir
             except FileNotFoundError:
                 print(f'Файл проекта [{get_com[1]}] не найден\n')
-            except ValueError:
+            except Exception:
                 print(f'Файл проекта [{get_com[1]}] не содержит проекта или проект поврежден\n')
     elif get_com[0] == 'exit':
         if file == '':

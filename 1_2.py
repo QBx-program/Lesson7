@@ -108,7 +108,7 @@ while True:
         else:
             import ast
             file = get_com[1]+'.irp'
-            text = "{'"+get_com[1]+"': []}"
+            text = "{'"+get_com[1]+"': []}\n[]"
             with open(file, 'a', encoding='UTF-8') as f:
                 f.write(text)
             with open(file, 'r', encoding='UTF-8') as f:

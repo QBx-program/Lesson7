@@ -1,0 +1,1 @@
+{'test_1': [{'css': ['style.css', 'css.css']}, {'img': [{'lost': ['a.jpeg', 'b.jpeg', 'c.jpg']}, 'top.png', 'center.png', 'about.jpg']}, {'mail': ['1.php', '2.php', '3.php', {'re': ['mail.php']}]}, 'index.html', 'lost.php']}[]
